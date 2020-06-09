@@ -1,0 +1,31 @@
+---
+version: 2
+workflows:
+  version: 2
+  test:
+    jobs:
+      - format_check
+      - push_notes
+
+jobs:
+  format_check:
+    docker:
+      - image: "hashicorp/terraform:0.11.14"
+    steps:
+      - checkout
+      - run:
+          name: Check terraform formatting
+          command: terraform fmt -check=true -write=false -diff
+  push_notes:
+    docker:
+      - image: "cimg/base:2020.01"
+    working_directory: ~/work
+    steps:
+      - checkout
+      - run:
+          name: Push Release Notes 
+          command: |
+            
+            git filter-branch --prune-empty --subdirectory-filter releases master
+            git remote set-url origin http://github.com/amy-hashi/release-test.git
+            git push -u origin master
