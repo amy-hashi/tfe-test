@@ -20,5 +20,5 @@ resource "random_string" "string" {
 }
 
 output "string" {
-	valut = random_string.string.id
+	value = random_string.string.id
 }
