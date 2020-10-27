@@ -1,5 +1,5 @@
 resource "random_id" "random" {
-  byte_length = 10485760
+  byte_length = 8817003
 
   keepers = {
     uuid = uuid()
