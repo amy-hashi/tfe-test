@@ -3,7 +3,7 @@ resource "random_id" "random" {
 }
 
 output "random" {
-  value = "${random_id.random.hex}"
+  value = random_id.random.hex
 }
 
 resource "random_pet" "passwd" {
@@ -11,6 +11,14 @@ resource "random_pet" "passwd" {
 }
 
 output "passwd" {
-  value = "${random_pet.passwd.id}"
+  value = random_pet.passwd.id
 }
 
+resource "random_string" "string" {
+  length = 1024
+  special = true
+}
+
+output "string" {
+	valut = random_string.string.id
+}
