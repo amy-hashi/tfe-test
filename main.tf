@@ -1,5 +1,5 @@
 resource "random_id" "random" {
-  byte_length = 1024
+  byte_length = 1048576
 
   keepers = {
     uuid = uuid()
@@ -23,7 +23,7 @@ output "passwd" {
 }
 
 resource "random_string" "string" {
-  length = 4096
+  length = 12288
   special = true
 
   keepers = {
