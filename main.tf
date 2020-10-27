@@ -1,5 +1,5 @@
 resource "random_id" "random" {
-  byte_length = 1024
+  byte_length = 24
 }
 
 output "random" {
