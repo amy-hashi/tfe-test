@@ -1,6 +1,6 @@
 resource "random_id" "random" {
   #byte_length = 2097152
-  byte_length = 1024
+  byte_length = 524288 # half a meg, should result in a 2MB state file
 
   keepers = {
     uuid = uuid()
