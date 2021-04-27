@@ -2,9 +2,9 @@ resource "random_id" "random" {
   #byte_length = 2097152
   byte_length = 10240 
   
-  keepers = {
-    uuid = uuid()
-  }
+  #keepers = {
+  #  uuid = uuid()
+  #}
 }
 
 output "random" {
@@ -14,9 +14,9 @@ output "random" {
 resource "random_pet" "passwd" {
   length = 3
 
-  keepers = {
-    uuid = uuid()
-  }
+  #keepers = {
+  #  uuid = uuid()
+  #}
 }
 
 output "passwd" {
