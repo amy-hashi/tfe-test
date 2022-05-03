@@ -22,3 +22,5 @@ resource "random_pet" "passwd" {
 output "passwd" {
   value = random_pet.passwd.id
 }
+
+# SECURI-TAY!
