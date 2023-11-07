@@ -5,6 +5,8 @@ resource "random_id" "random" {
   keepers = {
     uuid = uuid()
   }
+
+  depends_on = [time_sleep.wait_300_seconds]
 }
 
 output "random" {
@@ -17,21 +19,14 @@ resource "random_pet" "passwd" {
   keepers = {
     uuid = uuid()
   }
+
+  depends_on = [time_sleep.wait_300_seconds]
 }
 
 output "passwd" {
   value = random_pet.passwd.id
 }
 
-resource "null_resource" "previous" {}
-
 resource "time_sleep" "wait_300_seconds" {
-  depends_on = [null_resource.previous]
-
   create_duration = "300s"
-}
-
-# This resource will create (at least) 300 seconds after null_resource.previous
-resource "null_resource" "next" {
-  depends_on = [time_sleep.wait_300_seconds]
 }
